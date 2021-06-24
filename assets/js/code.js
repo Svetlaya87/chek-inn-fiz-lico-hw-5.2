@@ -1,5 +1,5 @@
 let date = new Date (1899,11,31);
-let birthdayDate=new Date();
+
 let currentDate = new Date();
 let years=0;
 let currDate=[];
@@ -25,17 +25,25 @@ let answer = function (arr) {
 
         let arr2 = [...arr].join('').slice(0,5)*1;
         console.log(arr2);
-        birthdayDate = date.setFullYear(date.getFullYear());// получаю год в миллисекундах
-        
-        arr2=arr2*86400000;// перевожу дни в миллисекунды
 
-        birthdayDate = birthdayDate +arr2;// получаю дату рождения в миллисекундах
-        
-       
-        
-        let date2=new Date(birthdayDate);// миллисекунды преобразовываю в объект Дата
+        /* 
 
+        не работает для кода 3463463460. Выдает 27.10.1994 вместо д.р. 28.10.1994; 
+
+        //let birthdayDate=new Date();
+        //birthdayDate = date.setFullYear(date.getFullYear());// получаю год в миллисекундах
+              
+
+        //arr2=arr2*86400000;// перевожу дни в миллисекунды
+
+        //birthdayDate = birthdayDate +arr2;// получаю дату рождения в миллисекундах
+             
         
+        //let date2=new Date(birthdayDate);// миллисекунды преобразовываю в объект Дата
+        
+        */
+
+        let date2=new Date(1899,11,31+arr2);// конструируем сразу дату из дня + количество дней
 
         let DayMonthYear = function(date){
             
@@ -78,8 +86,7 @@ let answer = function (arr) {
 
         console.log(years);
         console.log(birthDate);
-        //console.log(date.getFullYear());
-       
+               
         console.log(currDate );
 
         Obj.dateOfBirth= `${birthDate[2]}-${birthDate[1]}-${birthDate[0]}`;
@@ -108,6 +115,10 @@ let answer = function (arr) {
     } else {
 
         Obj.isCorrect=false;
+        delete Obj.dateOfBirth;
+        delete Obj.fullYears;
+        delete Obj.sex;
+
         return  `${JSON.stringify(Obj, null,' ')}`;
     }
 }
@@ -142,9 +153,6 @@ function chekInnX(inputElem, outputElem) {
 
 }
 
-//chekInnX(dataInput, Result);
-
-//chekInnX(dataInput2, Result2);
 
 
 
