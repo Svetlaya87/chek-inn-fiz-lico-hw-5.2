@@ -2,14 +2,7 @@ let date = new Date (1899,11,31);
 let birthdayDate=new Date();
 let currentDate = new Date();
 let years=0;
-let birthdayMonth=0;
-let currentMonth=0;
-let currentDay=0;
-let currentYear=0;
-let birthdayDay=0;
-let birthdayYear=0;
 let currDate=[];
-let xDate=[];
 let birthDate=[];
 let Obj={};
 let isCorrect=true;
@@ -44,27 +37,32 @@ let answer = function (arr) {
 
         
 
-        let DayMonthYear = function(day, month, year, date){
-            day= date.getDate();
-            month=date.getMonth();
-            year = date.getFullYear();
-            xDate.push(day);
-            xDate.push(month+1);
-            xDate.push(year);
+        let DayMonthYear = function(date){
+            
+            let day= date.getDate();
+            let month=date.getMonth();
+            let year = date.getFullYear();
 
+            // более длинный вариант решения
+            //xDate.push(day); 
+            //xDate.push(month+1);
+            //xDate.push(year);
+            let xDate=[day, month+1, year]; //в массиве указать переменные
+
+            console.log(xDate);
                     
 
             return xDate;
 
         }
 
-        currDate= DayMonthYear(currentDay, currentMonth,currentYear,currentDate);
+        currDate= DayMonthYear(currentDate);
 
-        xDate=[];
-        console.log(xDate);
+       
+        
 
 
-        birthDate=DayMonthYear(birthdayDay, birthdayMonth,birthdayYear,date2);
+        birthDate=DayMonthYear(date2);
 
 
        if (currDate[1]<birthDate[1]){
