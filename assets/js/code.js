@@ -65,7 +65,7 @@ let answer = function (arr) {
         birthDate=DayMonthYear(date2);
 
 
-       if (currDate[1]<birthDate[1]){
+       if ( ( currDate[1]<birthDate[1] ) || ( currDate[1]==birthDate[1] && currDate[0]<birthDate[0] ) ){
            years=currDate[2]-birthDate[2]-1;
 
        }else{
