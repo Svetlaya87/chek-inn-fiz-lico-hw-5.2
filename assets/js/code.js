@@ -95,7 +95,7 @@ let answer = function (arr) {
             Obj.sex='female';
             
             
-            return `${JSON.stringify(Obj)}`;
+            return `${JSON.stringify(Obj, null,' ')}`;
         } else {
 
             
@@ -104,13 +104,13 @@ let answer = function (arr) {
             
 
 
-            return `${JSON.stringify(Obj)}`;
+            return `${JSON.stringify(Obj, null,' ')}`;
         }
 
     } else {
 
         Obj.isCorrect=false;
-        return  `${JSON.stringify(Obj)}`;
+        return  `${JSON.stringify(Obj, null,' ')}`;
     }
 }
 
